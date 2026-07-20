@@ -167,10 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
     new Typed(typedEl, {
       strings: [
         'Full Stack Developer',
-        'Backend Engineer',
-        'Frontend Architect',
-        'API Designer',
-        'UI/UX Enthusiast',
+        'Python Developer',
+        'AI / ML Enthusiast',
         'Problem Solver',
       ],
       typeSpeed: 60,
