@@ -259,12 +259,13 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'Certificate of Achievement · ID: 2026AICSIB0665',
       file: 'assets/certificates/Certificate_IBM_Mar2026.pdf',
     },
+    // ── Sep 2024 ───────────────────────────────────────────────
     {
-      issuer: 'MECIA Hacks 2.0',
-      logo: 'fas fa-laptop-code',
-      title: 'MECIA Hacks 2.0 — Hackathon Participation',
-      date: '2026',
-      type: 'Hackathon Certificate',
+      issuer: 'SVIT Vasad – MECIA Hacks 2.0',
+      logo: 'fas fa-trophy',
+      title: 'MECIA Hacks 2.0 — 24-Hour Hackathon (Team: Tech Explorer)',
+      date: 'Sep 2024',
+      type: 'Certificate of Participation',
       file: 'assets/certificates/mecia_hacks.pdf',
     },
     // ── Aug 2024 ───────────────────────────────────────────────
@@ -467,8 +468,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // ── EmailJS send ──────────────────────────────────────
         // Replace SERVICE_ID and TEMPLATE_ID with your EmailJS values
         await emailjs.send(
-          'service_abc123',
-          'template_mxid8wx',
+          'service_k7m3x2p',
+          'template_dnzry1d',
           {
             from_name:    document.getElementById('name').value.trim(),
             from_email:   document.getElementById('email').value.trim(),
