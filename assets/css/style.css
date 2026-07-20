@@ -484,7 +484,7 @@ input::placeholder, textarea::placeholder { color: var(--text-dim); }
   min-height: 100vh;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: hidden; /* desktop: clip sphere overflow */
 }
 
 .hero__canvas {

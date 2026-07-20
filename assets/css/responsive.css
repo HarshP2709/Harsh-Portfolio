@@ -24,9 +24,10 @@
     top: unset;
     right: unset;
     transform: none;
-    margin: 40px auto 0;
-    width: 320px;
-    height: 320px;
+    margin: 32px auto 0;
+    width: min(340px, 80vw);
+    height: min(340px, 80vw);
+    display: block;
   }
 
   .hero__content {
@@ -116,8 +117,13 @@
 
   .title__name { font-size: clamp(2rem, 14vw, 3rem); }
 
+  .hero { overflow: visible; }
   .hero__content { padding-top: 100px; }
-  .hero__3d { width: 260px; height: 260px; }
+  .hero__3d {
+    width: min(300px, 76vw);
+    height: min(300px, 76vw);
+    margin: 24px auto 0;
+  }
 
   .about__stats-grid { grid-template-columns: 1fr 1fr; }
   .about__avatar { width: 220px; height: 220px; }
@@ -145,6 +151,10 @@
   .btn--sm { padding: 8px 16px; font-size: 12px; }
 
   .nav-container { padding: 0 16px; }
+  .hero__3d {
+    width: min(260px, 72vw);
+    height: min(260px, 72vw);
+  }
   .about__avatar { width: 180px; height: 180px; }
 
   .project-card__body { padding: 16px 18px 20px; }
