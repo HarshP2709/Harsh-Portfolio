@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mouseGlow && !isTouchDevice()) {
     document.addEventListener('mousemove', (e) => {
       mouseGlow.style.left = e.clientX + 'px';
-      mouseGlow.style.top  = e.clientY + 'px';
+      mouseGlow.style.top = e.clientY + 'px';
     });
   }
 
@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 5. SCROLL PROGRESS BAR ────────────────────────────────── */
   const progressBar = qs('scrollProgress');
-  const backToTop   = qs('backToTop');
-  const navbar      = qs('navbar');
+  const backToTop = qs('backToTop');
+  const navbar = qs('navbar');
 
   function onScroll() {
     const scrollTop = window.scrollY;
@@ -84,9 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateActiveNavLink() {
     const scrollY = window.scrollY + 140;
     sectionEls.forEach(sec => {
-      const top    = sec.offsetTop;
+      const top = sec.offsetTop;
       const height = sec.offsetHeight;
-      const id     = sec.getAttribute('id');
+      const id = sec.getAttribute('id');
       if (scrollY >= top && scrollY < top + height) {
         navLinkEls.forEach(link => {
           link.classList.toggle('active', link.dataset.section === id);
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ── 7. NAVBAR HAMBURGER ───────────────────────────────────── */
-  const hamburger  = qs('hamburger');
+  const hamburger = qs('hamburger');
   const navLinksEl = qs('navLinks');
 
   if (hamburger && navLinksEl) {
@@ -118,13 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── 8. SMOOTH ANCHOR SCROLL ───────────────────────────────── */
   $$('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
-      const href   = anchor.getAttribute('href');
+      const href = anchor.getAttribute('href');
       if (href === '#' || href === '#!') return;
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
       const offset = 80;
-      const top    = target.getBoundingClientRect().top + window.scrollY - offset;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
       if (lenis) {
         lenis.scrollTo(top, { duration: 1.4 });
       } else {
@@ -143,12 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 10. THEME TOGGLE ──────────────────────────────────────── */
   const themeToggle = qs('themeToggle');
-  const themeIcon   = qs('themeIcon');
-  const body        = document.body;
+  const themeIcon = qs('themeIcon');
+  const body = document.body;
 
   function applyTheme(theme) {
     body.classList.toggle('light-theme', theme === 'light');
-    body.classList.toggle('dark-theme',  theme !== 'light');
+    body.classList.toggle('dark-theme', theme !== 'light');
     if (themeIcon) themeIcon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
     localStorage.setItem('hp-theme', theme);
   }
@@ -183,10 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function animateCounter(el) {
     if (el._counted) return;
     el._counted = true;
-    const target   = parseInt(el.getAttribute('data-count'), 10) || 0;
+    const target = parseInt(el.getAttribute('data-count'), 10) || 0;
     const duration = 2000;
-    const steps    = Math.ceil(duration / 16);
-    let   frame    = 0;
+    const steps = Math.ceil(duration / 16);
+    let frame = 0;
     const timer = setInterval(() => {
       frame++;
       el.textContent = Math.floor((frame / steps) * target);
@@ -230,11 +230,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 14. SERVICES RENDER ───────────────────────────────────── */
   const SERVICES = [
-    { icon: 'fas fa-layer-group',      title: 'Full Stack Development',   desc: 'End-to-end web apps from database design to polished UI. Scalable, secure, and performant.' },
-    { icon: 'fas fa-palette',          title: 'Frontend Development',     desc: 'Pixel-perfect interfaces with smooth animations, responsive layouts, and great UX.' },
-    { icon: 'fas fa-server',           title: 'Backend Development',      desc: 'Robust REST APIs, microservices, and server architectures with Node.js & Express.' },
-    { icon: 'fas fa-database',         title: 'Database Design',          desc: 'Optimised schemas for MongoDB and MySQL, with efficient queries and data modeling.' },
-    { icon: 'fas fa-mobile-alt',       title: 'UI/UX Design',             desc: 'Mobile-first design systems, Figma prototypes, and accessible component libraries.' },
+    { icon: 'fas fa-layer-group', title: 'Full Stack Development', desc: 'End-to-end web apps from database design to polished UI. Scalable, secure, and performant.' },
+    { icon: 'fas fa-palette', title: 'Frontend Development', desc: 'Pixel-perfect interfaces with smooth animations, responsive layouts, and great UX.' },
+    { icon: 'fas fa-server', title: 'Backend Development', desc: 'Robust REST APIs, microservices, and server architectures with Node.js & Express.' },
+    { icon: 'fas fa-database', title: 'Database Design', desc: 'Optimised schemas for MongoDB and MySQL, with efficient queries and data modeling.' },
+    { icon: 'fas fa-mobile-alt', title: 'UI/UX Design', desc: 'Mobile-first design systems, Figma prototypes, and accessible component libraries.' },
   ];
 
   const servicesGrid = qs('servicesGrid');
@@ -252,11 +252,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const CERTIFICATES = [
     // ── 2026 ──────────────────────────────────────────────────
     {
+      issuer: 'SAM AI Technologies',
+      logo: 'fas fa-laptop-code',
+      title: 'Web Development Internship — Certificate of Completion',
+      date: 'Jul 2026',
+      type: 'Certificate of Completion',
+      file: 'assets/certificates/Certificate_ SamAI_Prajapati Harsh Ashwinbhai .pdf',
+    },
+    {
+      issuer: 'SAM AI Technologies',
+      logo: 'fas fa-file-alt',
+      title: 'Web Development Internship — Letter of Recommendation',
+      date: 'Jul 2026',
+      type: 'Letter of Recommendation',
+      file: 'assets/certificates/LOR_SamAI_ Prajapati Harsh Ashwinbhai .pdf',
+    },
+    {
+      issuer: 'SmartBridge & AICTE',
+      logo: 'fas fa-chart-line',
+      title: 'Virtual Internship — Certificate of Completion',
+      date: 'Jul 2026',
+      type: 'Certificate of Completion',
+      file: 'assets/certificates/Smart bridge_Harsh Prajapati _certificate.pdf',
+    },
+    {
+      issuer: 'CodeAlpha / AICTE Internship',
+      logo: 'fas fa-certificate',
+      title: 'Internship Certificate of Completion',
+      date: 'Jul 2026',
+      type: 'Certificate of Completion',
+      file: 'assets/certificates/Certificate_Prajapati Harsh Ashwinbhai.pdf',
+    },
+    {
+      issuer: 'CodeAlpha / AICTE Internship',
+      logo: 'fas fa-file-signature',
+      title: 'Internship Letter of Recommendation',
+      date: 'Jul 2026',
+      type: 'Letter of Recommendation',
+      file: 'assets/certificates/LOR_Prajapati Harsh Ashwinbhai.pdf',
+    },
+    {
       issuer: 'CSRBOX – AICTE IBM SkillsBuild',
       logo: 'fab fa-ibm',
       title: 'IBM SkillsBuild AI Strategy & Business Intelligence Internship',
       date: 'Mar–Apr 2026',
-      type: 'Certificate of Achievement · ID: 2026AICSIB0665',
+      type: 'Certificate of Achievement',
       file: 'assets/certificates/Certificate_IBM_Mar2026.pdf',
     },
     // ── Sep 2024 ───────────────────────────────────────────────
@@ -412,13 +452,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const certNext = qs('certNext');
 
     function updateSlider() {
-      const cards  = $$('.cert-card', certsTrack);
+      const cards = $$('.cert-card', certsTrack);
       if (!cards.length) return;
-      const cardW  = cards[0].getBoundingClientRect().width || 340;
-      const gap    = 24;
+      const cardW = cards[0].getBoundingClientRect().width || 340;
+      const gap = 24;
       const trackW = certsTrack.parentElement.offsetWidth;
       const visible = Math.max(1, Math.floor(trackW / (cardW + gap)));
-      const maxIdx   = Math.max(0, cards.length - visible);
+      const maxIdx = Math.max(0, cards.length - visible);
       certIndex = Math.max(0, Math.min(certIndex, maxIdx));
       certsTrack.style.transform = `translateX(-${certIndex * (cardW + gap)}px)`;
     }
@@ -430,23 +470,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 18. CONTACT FORM ─────────────────────────────────────── */
   const contactForm = qs('contactForm');
-  const submitBtn   = qs('submitBtn');
-  const submitText  = qs('submitText');
-  const submitIcon  = qs('submitIcon');
+  const submitBtn = qs('submitBtn');
+  const submitText = qs('submitText');
+  const submitIcon = qs('submitIcon');
   const formSuccess = qs('formSuccess');
 
   function validateField(id, errorId, rules) {
-    const el  = qs(id);
+    const el = qs(id);
     const err = qs(errorId);
     const val = el ? el.value.trim() : '';
-    let   msg = '';
+    let msg = '';
 
-    if (rules.required && !val)                                 msg = 'This field is required.';
+    if (rules.required && !val) msg = 'This field is required.';
     else if (rules.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) msg = 'Enter a valid email address.';
-    else if (rules.minLen && val.length < rules.minLen)         msg = `Minimum ${rules.minLen} characters required.`;
+    else if (rules.minLen && val.length < rules.minLen) msg = `Minimum ${rules.minLen} characters required.`;
 
     if (err) err.textContent = msg;
-    if (el)  el.parentElement.style.borderColor = msg ? 'rgba(239,68,68,.6)' : '';
+    if (el) el.parentElement.style.borderColor = msg ? 'rgba(239,68,68,.6)' : '';
     return !msg;
   }
 
@@ -454,13 +494,13 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const v1 = validateField('name',    'nameError',    { required: true, minLen: 2 });
-      const v2 = validateField('email',   'emailError',   { required: true, email: true });
+      const v1 = validateField('name', 'nameError', { required: true, minLen: 2 });
+      const v2 = validateField('email', 'emailError', { required: true, email: true });
       const v3 = validateField('subject', 'subjectError', { required: true });
       const v4 = validateField('message', 'messageError', { required: true, minLen: 10 });
       if (!v1 || !v2 || !v3 || !v4) return;
 
-      if (submitBtn)  submitBtn.disabled = true;
+      if (submitBtn) submitBtn.disabled = true;
       if (submitText) submitText.textContent = 'Sending…';
       if (submitIcon) submitIcon.className = 'fas fa-spinner fa-spin';
 
@@ -471,12 +511,12 @@ document.addEventListener('DOMContentLoaded', () => {
           'service_k7m3x2p',
           'template_dnzry1d',
           {
-            from_name:    document.getElementById('name').value.trim(),
-            from_email:   document.getElementById('email').value.trim(),
-            phone:        document.getElementById('phone') ? document.getElementById('phone').value.trim() : '',
-            subject:      document.getElementById('subject').value.trim(),
-            message:      document.getElementById('message').value.trim(),
-            to_email:     'harshashvinbhai27@gmail.com',
+            from_name: document.getElementById('name').value.trim(),
+            from_email: document.getElementById('email').value.trim(),
+            phone: document.getElementById('phone') ? document.getElementById('phone').value.trim() : '',
+            subject: document.getElementById('subject').value.trim(),
+            message: document.getElementById('message').value.trim(),
+            to_email: 'harshashvinbhai27@gmail.com',
           }
         );
 
@@ -506,16 +546,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (el) {
         el.addEventListener('blur', () => {
           const rules = id === 'email' ? { required: true, email: true }
-                      : id === 'message' ? { required: true, minLen: 10 }
-                      : { required: true };
+            : id === 'message' ? { required: true, minLen: 10 }
+              : { required: true };
           validateField(id, id + 'Error', rules);
         });
         el.addEventListener('input', () => {
           const errEl = qs(id + 'Error');
           if (errEl && errEl.textContent) validateField(id, id + 'Error',
             id === 'email' ? { required: true, email: true }
-            : id === 'message' ? { required: true, minLen: 10 }
-            : { required: true }
+              : id === 'message' ? { required: true, minLen: 10 }
+                : { required: true }
           );
         });
       }
@@ -524,8 +564,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 19. PROJECT MODAL ────────────────────────────────────── */
   const modalOverlay = qs('projectModal');
-  const modalInner   = qs('modalInner');
-  const modalClose   = qs('modalClose');
+  const modalInner = qs('modalInner');
+  const modalClose = qs('modalClose');
 
   function openModal(project) {
     if (!project || !modalOverlay || !modalInner) return;
@@ -550,7 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="modal__tech-tags">${(project.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}</div>
       </div>
       <div class="modal__actions">
-        ${project.live   ? `<a href="${project.live}"   target="_blank" rel="noopener" class="btn btn--primary btn--glow"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+        ${project.live ? `<a href="${project.live}"   target="_blank" rel="noopener" class="btn btn--primary btn--glow"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
         ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="btn btn--outline"><i class="fab fa-github"></i> View Code</a>` : ''}
       </div>
     `;
@@ -563,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  if (modalClose)   modalClose.addEventListener('click', closeModal);
+  if (modalClose) modalClose.addEventListener('click', closeModal);
   if (modalOverlay) modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
@@ -600,8 +640,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const filter = btn.dataset.filter;
       $$('#stackGrid .skill-card').forEach(card => {
         const show = filter === 'all' || card.dataset.cat === filter;
-        card.style.display    = show ? '' : 'none';
-        card.style.animation  = show ? 'scaleIn .35s ease both' : '';
+        card.style.display = show ? '' : 'none';
+        card.style.animation = show ? 'scaleIn .35s ease both' : '';
       });
     });
   }
@@ -618,7 +658,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $$('#projectsGrid .project-card').forEach(card => {
         const cats = (card.dataset.cat || '').split(' ');
         const show = filter === 'all' || cats.includes(filter);
-        card.style.display   = show ? '' : 'none';
+        card.style.display = show ? '' : 'none';
         card.style.animation = show ? 'fadeInUp .4s ease both' : '';
       });
     });
@@ -626,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── 24. INTERSECTION OBSERVER for CSS animations ───────────── */
   const ioOpts = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
-  const io     = new IntersectionObserver((entries) => {
+  const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in-view');
@@ -681,8 +721,8 @@ document.addEventListener('DOMContentLoaded', () => {
     $$('.btn--primary, .btn--glow').forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const r = btn.getBoundingClientRect();
-        const x = ((e.clientX - r.left) / r.width  - 0.5) * 14;
-        const y = ((e.clientY - r.top)  / r.height - 0.5) * 14;
+        const x = ((e.clientX - r.left) / r.width - 0.5) * 14;
+        const y = ((e.clientY - r.top) / r.height - 0.5) * 14;
         btn.style.transform = `translate(${x}px, ${y}px) scale(1.03)`;
       });
       btn.addEventListener('mouseleave', () => {
