@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       file: 'assets/certificates/LOR_SamAI_ Prajapati Harsh Ashwinbhai .pdf',
     },
     {
-      issuer: 'SmartBridge & AICTE',
+      issuer: 'SmartBridge',
       logo: 'fas fa-chart-line',
       title: 'Virtual Internship — Certificate of Completion',
       date: 'Jul 2026',
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
       file: 'assets/certificates/Smart bridge_Harsh Prajapati _certificate.pdf',
     },
     {
-      issuer: 'CodeAlpha / AICTE Internship',
+      issuer: 'CodeAlpha',
       logo: 'fas fa-certificate',
       title: 'Internship Certificate of Completion',
       date: 'Jul 2026',
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
       file: 'assets/certificates/Certificate_Prajapati Harsh Ashwinbhai.pdf',
     },
     {
-      issuer: 'CodeAlpha / AICTE Internship',
+      issuer: 'CodeAlpha',
       logo: 'fas fa-file-signature',
       title: 'Internship Letter of Recommendation',
       date: 'Jul 2026',
