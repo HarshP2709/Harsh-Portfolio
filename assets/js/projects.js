@@ -70,12 +70,12 @@ window.PROJECTS = [
   {
     id: 6,
     title: 'Developer Portfolio Website',
-    desc: 'This very website — built with Three.js, GSAP, 3D effects, glassmorphism, and a premium dark UI to showcase projects and skills.',
+    desc: 'This very website — built with Three.js, GSAP, 3D effects, glassmorphism, and a premium dark UI to showcase projects and skills. Deployed on Vercel.',
     emoji: '🌐',
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'Three.js', 'GSAP'],
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'Three.js', 'GSAP', 'EmailJS', 'Vercel'],
     cat: 'frontend',
     badge: 'Frontend', badgeClass: 'badge--frontend',
-    live: '#', github: 'https://github.com/HarshP2709',
+    live: 'https://harsh-portfolio-three-liart.vercel.app/', github: 'https://github.com/HarshP2709',
     features: ['Three.js 3D animated sphere', 'GSAP scroll-triggered animations', 'Glassmorphism design system', 'Custom cursor & mouse glow', 'Particles.js interactive background'],
     challenges: ['Three.js performance on mobile', 'Smooth GSAP + Lenis scroll integration', 'Maintaining high Lighthouse score with all effects'],
   },
@@ -83,22 +83,39 @@ window.PROJECTS = [
 
 /* ── TECH STACK DATA ────────────────────────────────────────── */
 const TECH_STACK = [
-  // Frontend (from resume: HTML, CSS, JavaScript)
-  { name: 'HTML5',      icon: 'devicon-html5-plain colored',      cat: 'frontend', pct: 90 },
-  { name: 'CSS3',       icon: 'devicon-css3-plain colored',       cat: 'frontend', pct: 88 },
+  // Frontend
+  { name: 'HTML5', icon: 'devicon-html5-plain colored', cat: 'frontend', pct: 90 },
+  { name: 'CSS3', icon: 'devicon-css3-plain colored', cat: 'frontend', pct: 88 },
   { name: 'JavaScript', icon: 'devicon-javascript-plain colored', cat: 'frontend', pct: 85 },
+  { name: 'TypeScript', icon: 'devicon-typescript-plain colored', cat: 'frontend', pct: 78 },
+  { name: 'Angular', icon: 'devicon-angularjs-plain colored', cat: 'frontend', pct: 72 },
+  { name: 'React.js', icon: 'devicon-react-original colored', cat: 'frontend', pct: 75 },
+  { name: 'Next.js', icon: 'devicon-nextjs-plain', cat: 'frontend', pct: 70 },
 
-  // Backend / Languages (from resume: C, Python, Java)
-  { name: 'C',          icon: 'devicon-c-plain colored',          cat: 'backend',  pct: 80 },
-  { name: 'Python',     icon: 'devicon-python-plain colored',     cat: 'backend',  pct: 75 },
-  { name: 'Java',       icon: 'devicon-java-plain colored',       cat: 'backend',  pct: 70 },
-  // Database (from resume: SQL)
-  { name: 'SQL',        icon: 'devicon-mysql-plain colored',      cat: 'database', pct: 75 },
-  { name: 'MongoDB',    icon: 'devicon-mongodb-plain colored',    cat: 'database', pct: 65 },
+  // Backend / Languages
+  { name: 'C', icon: 'devicon-c-plain colored', cat: 'backend', pct: 80 },
+  { name: 'Python', icon: 'devicon-python-plain colored', cat: 'backend', pct: 78 },
+  { name: 'Java', icon: 'devicon-java-plain colored', cat: 'backend', pct: 72 },
+  { name: 'Node.js', icon: 'devicon-nodejs-plain colored', cat: 'backend', pct: 80 },
+  { name: 'Express.js', icon: 'devicon-express-original', cat: 'backend', pct: 78 },
+  { name: 'Django', icon: 'devicon-django-plain colored', cat: 'backend', pct: 65 },
+  { name: 'Flask', icon: 'devicon-flask-original', cat: 'backend', pct: 65 },
+  { name: 'NumPy', icon: 'devicon-numpy-plain colored', cat: 'backend', pct: 70 },
+  { name: 'Pandas', icon: 'devicon-pandas-plain colored', cat: 'backend', pct: 68 },
+
+  // Database
+  { name: 'MySQL', icon: 'devicon-mysql-plain colored', cat: 'database', pct: 80 },
+  { name: 'PostgreSQL', icon: 'devicon-postgresql-plain colored', cat: 'database', pct: 70 },
+  { name: 'MongoDB', icon: 'devicon-mongodb-plain colored', cat: 'database', pct: 72 },
+  { name: 'Supabase', icon: 'devicon-supabase-plain colored', cat: 'database', pct: 68 },
+
   // Tools
-  { name: 'Git',        icon: 'devicon-git-plain colored',        cat: 'tools',    pct: 85 },
-  { name: 'GitHub',     icon: 'devicon-github-original',          cat: 'tools',    pct: 85 },
-  { name: 'VS Code',    icon: 'devicon-vscode-plain colored',     cat: 'tools',    pct: 92 },
+  { name: 'Git', icon: 'devicon-git-plain colored', cat: 'tools', pct: 85 },
+  { name: 'GitHub', icon: 'devicon-github-original', cat: 'tools', pct: 85 },
+  { name: 'VS Code', icon: 'devicon-vscode-plain colored', cat: 'tools', pct: 92 },
+  { name: 'Power BI', icon: 'fas fa-chart-bar', cat: 'tools', pct: 70, color: '#F2C811' },
+  { name: 'Tableau', icon: 'fas fa-chart-area', cat: 'tools', pct: 68, color: '#E97627' },
+  { name: 'Excel', icon: 'fas fa-file-excel', cat: 'tools', pct: 75, color: '#1D6F42' },
 ];
 
 /* ── RENDER TECH STACK ──────────────────────────────────────── */
@@ -147,7 +164,7 @@ function renderProjects() {
         ${p.badge ? `<span class="project-card__badge ${p.badgeClass}">${p.badge}</span>` : ''}
         <div class="project-card__overlay">
           <div class="project-card__preview-btns">
-            ${p.live   !== '#' ? `<a href="${p.live}"   target="_blank" rel="noopener" class="btn btn--sm btn--primary" onclick="event.stopPropagation()"><i class="fas fa-external-link-alt"></i></a>` : ''}
+            ${p.live !== '#' ? `<a href="${p.live}"   target="_blank" rel="noopener" class="btn btn--sm btn--primary" onclick="event.stopPropagation()"><i class="fas fa-external-link-alt"></i></a>` : ''}
             ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener" class="btn btn--sm btn--glass" onclick="event.stopPropagation()"><i class="fab fa-github"></i></a>` : ''}
           </div>
         </div>
