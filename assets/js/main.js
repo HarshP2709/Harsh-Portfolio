@@ -166,9 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typedEl && typeof Typed !== 'undefined') {
     new Typed(typedEl, {
       strings: [
+        'Software Developer',
+        'AI / ML Enthusiast',
         'Full Stack Developer',
         'Python Developer',
-        'AI / ML Enthusiast',
+        'Data Analyst',
         'Problem Solver',
       ],
       typeSpeed: 60,
